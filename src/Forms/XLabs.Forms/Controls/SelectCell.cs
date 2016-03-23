@@ -77,7 +77,7 @@ namespace XLabs.Forms.Controls
 		public SelectCell(Func<INavigation> navigation)
 		{
 			Navigation = navigation;
-			ShowDisclousure = true;
+			AccessoryType = TextCellAccessoryType.None;
 			DetailLocation = TextCellDetailLocation.Right;
 			this.DetailColor = Color.Gray;
 

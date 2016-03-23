@@ -185,38 +185,51 @@ namespace XLabs.Forms.Controls
 			set { SetValue(ShowSeparatorProperty, value); }
 		}
 
+		public static readonly BindableProperty AccessoryTypeProperty = BindableProperty.Create<ExtendedTextCell, TextCellAccessoryType>(p => p.AccessoryType, TextCellAccessoryType.None);
 
-		/// <summary>
-		/// The show disclousure property
-		/// </summary>
-		public static readonly BindableProperty ShowDisclousureProperty =
-			BindableProperty.Create<ExtendedTextCell, bool>(p => p.ShowDisclousure, true);
-
-		/// <summary>
-		/// Gets or sets a value indicating whether [show disclousure].
-		/// </summary>
-		/// <value><c>true</c> if [show disclousure]; otherwise, <c>false</c>.</value>
-		public bool ShowDisclousure
-		{
-			get { return (bool)GetValue(ShowDisclousureProperty); }
-			set { SetValue(ShowDisclousureProperty, value); }
+		public TextCellAccessoryType AccessoryType {
+			get { return (TextCellAccessoryType)GetValue(AccessoryTypeProperty); }
+			set { SetValue(AccessoryTypeProperty, value); }
 		}
 
 		/// <summary>
-		/// The disclousure image property
+		/// The disclosure image property
 		/// </summary>
-		public static readonly BindableProperty DisclousureImageProperty =
+		public static readonly BindableProperty DisclosureImageProperty =
 			BindableProperty.Create<ExtendedTextCell, string>(
-				p => p.DisclousureImage, string.Empty);
+				p => p.DisclosureImage, string.Empty);
 
 		/// <summary>
-		/// Gets or sets the disclousure image.
+		/// Gets or sets the disclosure image.
 		/// </summary>
-		/// <value>The disclousure image.</value>
-		public string DisclousureImage
+		/// <value>The disclosure image.</value>
+		public string DisclosureImage
 		{
-			get { return (string)GetValue(DisclousureImageProperty); }
-			set { SetValue(DisclousureImageProperty, value); }
+			get { return (string)GetValue(DisclosureImageProperty); }
+			set { SetValue(DisclosureImageProperty, value); }
+		}
+
+		public static readonly BindableProperty ImageProperty = BindableProperty.Create<ExtendedTextCell, string>(p => p.Image, default(string));
+		public string Image {
+			get { return (string)GetValue(ImageProperty); }
+			set { SetValue(ImageProperty, value); }
+		}
+
+		/// <summary>
+		/// The font size property
+		/// </summary>
+		public static readonly BindableProperty MinimumScaleFactorProperty =
+			BindableProperty.Create<ExtendedTextCell, float>(
+				p => p.MinimumScaleFactor, 0.0f);
+
+		/// <summary>
+		/// Gets or sets the size of the font.
+		/// </summary>
+		/// <value>The size of the font.</value>
+		public float MinimumScaleFactor
+		{
+			get { return (float)GetValue(MinimumScaleFactorProperty); }
+			set { SetValue(MinimumScaleFactorProperty, value); }
 		}
 	}
 }

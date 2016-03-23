@@ -61,6 +61,10 @@ namespace XLabs.Forms.Controls
         /// The right swipe
         /// </summary>
         public EventHandler RightSwipe;
+		/// <summary>
+		/// The decide policy
+		/// </summary>
+		public EventHandler<DecidePolicyEventArgs> DecidePolicy;
 
         /// <summary>
         /// The inject lock.
@@ -331,6 +335,25 @@ namespace XLabs.Forms.Controls
             }
         }
 
+		/// <summary>
+		/// Called when [decidePolicy].
+		/// </summary>
+		/// <param name="uri">The URI.</param>
+		internal bool OnDecidePolicy(Uri uri)
+		{
+			var handler = this.DecidePolicy;
+			if (handler != null)
+			{
+				var args = new DecidePolicyEventArgs(uri);
+				handler(this, args);
+				return !args.Cancel;
+			}
+			else {
+				return true;
+			}
+		}
+
+
         internal void MessageReceived(string message)
         {
             var m = this.jsonSerializer.Deserialize<Message>(message);
@@ -406,6 +429,22 @@ namespace XLabs.Forms.Controls
             public string Content { get; private set; }
             public string BaseUri { get; private set; }
         }
+
+		/// <summary>
+		/// Event arguments for deciding whether to handle a navigate event
+		/// </summary>
+		public class DecidePolicyEventArgs : EventArgs
+		{
+			internal DecidePolicyEventArgs(Uri uri)
+			{
+				this.Uri = uri;
+				this.Cancel = false;
+			}
+
+
+			public Uri Uri { get; private set; }
+			public bool Cancel { get; set; }
+		}
 
         /// <summary>
         /// Message class for transporting JSON objects.

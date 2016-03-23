@@ -83,34 +83,34 @@ namespace XLabs.Forms.Controls
 		/// <summary>
 		/// The show disclousure property
 		/// </summary>
-		public static readonly BindableProperty ShowDisclousureProperty =
-			BindableProperty.Create<ExtendedViewCell, bool>(p => p.ShowDisclousure, true);
+		public static readonly BindableProperty ShowDisclosureProperty =
+			BindableProperty.Create<ExtendedViewCell, bool>(p => p.ShowDisclosure, true);
 
 		/// <summary>
 		/// Gets or sets a value indicating whether [show disclousure].
 		/// </summary>
 		/// <value><c>true</c> if [show disclousure]; otherwise, <c>false</c>.</value>
-		public bool ShowDisclousure
+		public bool ShowDisclosure
 		{
-			get { return (bool)GetValue(ShowDisclousureProperty); }
-			set { SetValue(ShowDisclousureProperty, value); }
+			get { return (bool)GetValue(ShowDisclosureProperty); }
+			set { SetValue(ShowDisclosureProperty, value); }
 		}
 
 		/// <summary>
 		/// The disclousure image property
 		/// </summary>
-		public static readonly BindableProperty DisclousureImageProperty =
+		public static readonly BindableProperty DisclosureImageProperty =
 			BindableProperty.Create<ExtendedViewCell, string>(
-				p => p.DisclousureImage, string.Empty);
+				p => p.DisclosureImage, string.Empty);
 
 		/// <summary>
 		/// Gets or sets the disclousure image.
 		/// </summary>
 		/// <value>The disclousure image.</value>
-		public string DisclousureImage
+		public string DisclosureImage
 		{
-			get { return (string)GetValue(DisclousureImageProperty); }
-			set { SetValue(DisclousureImageProperty, value); }
+			get { return (string)GetValue(DisclosureImageProperty); }
+			set { SetValue(DisclosureImageProperty, value); }
 		}
 	}
 }
